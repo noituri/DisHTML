@@ -8,9 +8,12 @@ using namespace tinyxml2;
 int main() {
     XMLDocument doc;
     doc.LoadFile("../testing.html");
+
     auto bot = doc.FirstChildElement("html")->FirstChildElement("bot");
     std::string token(bot->FindAttribute("token")->Value());
+
     Client client(token);
+    client.prefix = bot->FindAttribute("prefix")->Value();
     client.run();
     return 0;
 }

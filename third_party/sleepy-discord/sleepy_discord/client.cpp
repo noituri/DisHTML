@@ -236,7 +236,7 @@ namespace SleepyDiscord {
 		shardID = _shardID;
 		shardCount = _shardCount;
 	}
-#define SLEEPY_USE_HARD_CODED_GATEWAY
+
 	void BaseDiscordClient::getTheGateway() {
 #ifdef SLEEPY_USE_HARD_CODED_GATEWAY
 		theGateway = "wss://gateway.discord.gg/?v=6";	//This is needed for when session is disabled
