@@ -5,11 +5,10 @@
 #include "command.h"
 
 class Client : public SleepyDiscord::DiscordClient {
-private:
-    std::vector<std::unique_ptr<Command>> commands;
 public:
     using SleepyDiscord::DiscordClient::WebsocketppDiscordClient;
     std::string prefix;
+    std::vector<Command> commands;
     void onMessage(SleepyDiscord::Message message) override;
 };
 
