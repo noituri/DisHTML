@@ -5,9 +5,16 @@
 
 using namespace tinyxml2;
 
-int main() {
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        std::cout << "Provide path to html file." << std::endl;
+        return 1;
+    }
+
+    std::cout << "Loading html file: " << argv[1] << std::endl;
+
     XMLDocument doc;
-    doc.LoadFile("../testing.html");
+    doc.LoadFile(argv[1]);
 
     auto bot = doc.FirstChildElement("html")->FirstChildElement("bot");
     std::string token(bot->FindAttribute("token")->Value());
